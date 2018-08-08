@@ -1,0 +1,8 @@
+# RR Request Device Restriction
+SetEnvIf User-Agent "Android" allow_ua 	#Allow Android to access this directory
+SetEnvIf User-Agent "iPhone" allow_ua 	#Allow iPhone to access this directory
+SetEnvIf User-Agent "iPad" allow_ua 	#Allow iPad to access this directory
+SetEnvIf User-Agent "iPod" allow_ua 	##Allow iPod to access this directory
+Order deny,allow
+deny from all 							#restrict all other devices accept above devices
+allow from env=allow_ua
